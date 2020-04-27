@@ -353,14 +353,14 @@ static struct sg_table *ion_map_dma_buf(struct dma_buf_attachment *attachment,
 	mutex_lock(&buffer->lock);
 	if (map_attrs & DMA_ATTR_SKIP_CPU_SYNC)
 		trace_ion_dma_map_cmo_skip(attachment->dev,
-					   attachment->dmabuf->buf_name,
+					   attachment->dmabuf->name,
 					   ion_buffer_cached(buffer),
 					   hlos_accessible_buffer(buffer),
 					   attachment->dma_map_attrs,
 					   direction);
 	else
 		trace_ion_dma_map_cmo_apply(attachment->dev,
-					    attachment->dmabuf->buf_name,
+					    attachment->dmabuf->name,
 					    ion_buffer_cached(buffer),
 					    hlos_accessible_buffer(buffer),
 					    attachment->dma_map_attrs,
@@ -402,14 +402,14 @@ static void ion_unmap_dma_buf(struct dma_buf_attachment *attachment,
 	mutex_lock(&buffer->lock);
 	if (map_attrs & DMA_ATTR_SKIP_CPU_SYNC)
 		trace_ion_dma_unmap_cmo_skip(attachment->dev,
-					     attachment->dmabuf->buf_name,
+					     attachment->dmabuf->name,
 					     ion_buffer_cached(buffer),
 					     hlos_accessible_buffer(buffer),
 					     attachment->dma_map_attrs,
 					     direction);
 	else
 		trace_ion_dma_unmap_cmo_apply(attachment->dev,
-					      attachment->dmabuf->buf_name,
+					      attachment->dmabuf->name,
 					      ion_buffer_cached(buffer),
 					      hlos_accessible_buffer(buffer),
 					      attachment->dma_map_attrs,
