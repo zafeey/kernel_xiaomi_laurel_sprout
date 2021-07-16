@@ -1856,7 +1856,6 @@ static int fts_ts_resume(struct device *dev)
 /*****************************************************************************
 * TP Driver
 *****************************************************************************/
-extern int fts_test_entry(char *ini_file_name);
 static int tid_open_short_test(struct device *dev, struct seq_file *seq,
                    const struct firmware *fw)
 {
@@ -1872,7 +1871,6 @@ static int tid_open_short_test(struct device *dev, struct seq_file *seq,
     input_dev = ts_data->input_dev;
     mutex_lock(&input_dev->mutex);
     disable_irq(ts_data->irq);
-    ret = fts_test_entry("focaltech-ft3518-sumsung.ini");
     enable_irq(ts_data->irq);
     mutex_unlock(&input_dev->mutex);
 
