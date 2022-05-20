@@ -186,6 +186,11 @@
 				qcom,mdss-dsi-dispparam-hbm-fod-on-command = [
 					15 01 00 00 10 00 02 53 E0];
 				qcom,mdss-dsi-dispparam-hbm-fod-on-command-state = "dsi_hs_mode";
+
+				qcom,mdss-dsi-dispparam-hbm-off-command = [15 01 00 00 00 00 02 53 28];
+				qcom,mdss-dsi-dispparam-hbm-off-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-dispparam-hbm-on-command = [15 01 00 00 00 00 02 53 E8];
+				qcom,mdss-dsi-dispparam-hbm-on-command-state = "dsi_lp_mode";
 			};
 		};
 	};
