@@ -5275,7 +5275,7 @@ static struct sde_hw_dim_layer* sde_crtc_setup_fod_dim_layer(
 		goto error;
 	}
 
-	layer_stage = SDE_STAGE_0 + stage;
+	layer_stage = SDE_STAGE_BASE + stage;
 	if (layer_stage >= kms->catalog->mixer[0].sblk->maxblendstages) {
 		SDE_ERROR("Stage too large %u vs max %u\n", layer_stage,
 			kms->catalog->mixer[0].sblk->maxblendstages);
