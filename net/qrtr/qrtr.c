@@ -804,7 +804,7 @@ int qrtr_endpoint_post(struct qrtr_endpoint *ep, const void *data, size_t len)
 		cb->src_port = le32_to_cpu(v1->src_port_id);
 		cb->confirm_rx = !!v1->confirm_rx;
 		cb->dst_node = le32_to_cpu(v1->dst_node_id);
-		cb->dst_port = le32_to_cpu(v1->dst_port_id);
+	cb->dst_port = le32_to_cpu(v1->dst_port_id);
 
 		size = le32_to_cpu(v1->size);
 		break;
