@@ -1197,6 +1197,7 @@ static void __dwc3_prepare_one_trb(struct dwc3_ep *dep, struct dwc3_trb *trb,
 	 */
 	wmb();
 	trb->ctrl |= DWC3_TRB_CTRL_HWO;
+
 	dwc3_ep_inc_enq(dep);
 
 	trace_dwc3_prepare_trb(dep, trb);
@@ -2321,8 +2322,11 @@ static int dwc3_gadget_pullup(struct usb_gadget *g, int is_on)
 
 		ret = wait_for_completion_timeout(&dwc->ep0_in_setup,
 				msecs_to_jiffies(DWC3_PULL_UP_TIMEOUT));
-		if (ret == 0)
+		if (ret == 0) {
 			dev_warn(dwc->dev, "timed out waiting for SETUP phase\n");
+			dbg_event(0xFF, "Pullup timeout put",
+				atomic_read(&dwc->dev->power.usage_count));
+		}
 	}
 
 	disable_irq(dwc->irq);
